@@ -1,0 +1,157 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* background: #000000; */
+}
+
+.parent{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  width: 500px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 15px solid black;
+}
+
+.container{
+  position: relative;
+  height: 300px;
+  width: 300px;
+}
+
+.bar1{
+  position: absolute;
+  background: #000;
+  width: 40px;
+  height: 238px;
+  clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%);
+  animation: slideFromTop 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
+}
+
+.bar2{
+  position: absolute;
+  right: 0;
+  background: #000000;
+  width: 40px;
+  height: 300px;
+  clip-path: polygon(0 14%, 100% 0, 100% 100%, 0% 100%);
+  animation: slideFromRight 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
+}
+
+.bar3{
+  position: absolute;
+  left: -40px;
+  bottom: 60px;
+  background: #000000;
+  width: 40px;
+  height: 340px;
+  transform: rotate(45deg);
+  transform-origin: bottom right;
+  clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 88%);
+  animation: rotateAndSlideFromLeft 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
+}
+
+.bar4{
+  position: absolute;
+  bottom: 0px;
+  width: 40px;
+  height: 425px;
+  background: #000000;
+  transform: rotate(45deg);
+  transform-origin: bottom left;
+  clip-path: polygon(0 0, 100% 10%, 100% 91%, 0% 100%);
+  animation: rotateAndSlideFromBottom 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
+}
+
+.bar5{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  background: #000000;
+  width: 40px;
+  height: 228px;
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  animation: rotateAndSlideFromBottom2 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes slideFromTop {
+  from {
+    top: -300px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    right: -300px;
+  }
+  to {
+    right: 0;
+  }
+}
+
+@keyframes rotateAndSlideFromLeft {
+  from {
+    left: -340px;
+    bottom: -60px;
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+  }
+  to {
+    left: -30;
+    bottom: 60px;
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+  }
+}
+
+@keyframes rotateAndSlideFromBottom {
+  from {
+    bottom: -425px;
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+  }
+  to {
+    bottom: 0;
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+  }
+}
+
+@keyframes rotateAndSlideFromBottom2 {
+  from {
+    bottom: -425px;
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+  }
+  to {
+    bottom: 0;
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
