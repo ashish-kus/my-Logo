@@ -5,25 +5,24 @@
 }
 
 body {
+  /* margin: auto; */
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  /* transform: rotate(-30deg); */
 }
-
 
 .parent {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 500px;
-  width: 500px;
-  border-radius: 50%;
-  position: relative; /* Add position relative */
+  height: 600px;
+  width: 600px;
+  position: relative; 
   border: 15px   solid transparent;
   animation: circle 1s forwards;
-  animation-delay: 1.2s; /* Add a delay of 1 second */
+  animation-delay: 1.2s; 
+  overflow: hidden;
 }
 
 @keyframes circle {
@@ -33,7 +32,6 @@ body {
 }
 
 .container {
-  background: red;
   position: relative;
   height: 300px;
   width: 300px;
@@ -155,3 +153,11 @@ body {
     right: 0;
   }
 }
+@media only screen and (max-width: 767px) {
+  .logo{
+    transform: scale(0.5);
+  }   
+
+ }
+
+
