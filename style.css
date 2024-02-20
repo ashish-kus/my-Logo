@@ -9,7 +9,9 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  /* transform: rotate(-30deg); */
 }
+
 
 .parent {
   display: flex;
@@ -19,15 +21,14 @@ body {
   width: 500px;
   background: #ffffff;
   border-radius: 50%;
-  overflow: hidden; /* Clip content outside the circular container */
-  animation: circle 1s ;
-  animation-delay: 1s;
+  overflow: hidden;
+  position: relative; /* Add position relative */
+  border: 15px solid transparent;
+  animation: circle 1s forwards;
+  animation-delay: 1.2s; /* Add a delay of 1 second */
 }
 
 @keyframes circle {
-  from {
-    border: 15px solid transparent;
-  }
   to {
     border: 15px solid black;
   }
@@ -147,13 +148,3 @@ body {
     right: 0;
   }
 }
-
-/* @keyframes fadeIn { */
-/*   from { */
-/*     opacity: 0; */
-/*   } */
-/*   to { */
-/*     opacity: 1; */
-/*   } */
-/* } */
-
