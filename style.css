@@ -1,19 +1,17 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body{
+body {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  /* background: #000000; */
 }
 
-.parent{
-
+.parent {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,137 +19,141 @@ body{
   width: 500px;
   background: #ffffff;
   border-radius: 50%;
-  border: 15px solid black;
+  overflow: hidden; /* Clip content outside the circular container */
+  animation: circle 1s ;
+  animation-delay: 1s;
 }
 
-.container{
+@keyframes circle {
+  from {
+    border: 15px solid transparent;
+  }
+  to {
+    border: 15px solid black;
+  }
+}
+
+.container {
   position: relative;
   height: 300px;
   width: 300px;
 }
 
-.bar1{
+.bar1,
+.bar2,
+.bar3,
+.bar4,
+.bar5 {
   position: absolute;
-  background: #000;
+  background: #000000;
   width: 40px;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* bar 1 */
+.bar1 {
   height: 238px;
   clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%);
-  animation: slideFromTop 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
+  animation: animation-bar1 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
 }
 
-.bar2{
-  position: absolute;
+@keyframes animation-bar1 {
+  from {
+    transform: translate(0, -300px);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+/* bar 2 */
+.bar2 {
   right: 0;
-  background: #000000;
-  width: 40px;
   height: 300px;
   clip-path: polygon(0 14%, 100% 0, 100% 100%, 0% 100%);
-  animation: slideFromRight 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
+  animation: animation-bar2 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
 }
 
-.bar3{
-  position: absolute;
+@keyframes animation-bar2 {
+  from {
+    transform: translate(0, 400px);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+/* bar 3 */
+.bar3 {
   left: -40px;
   bottom: 60px;
-  background: #000000;
-  width: 40px;
   height: 340px;
   transform: rotate(45deg);
   transform-origin: bottom right;
   clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 88%);
-  animation: rotateAndSlideFromLeft 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
+  animation: animation-bar3 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
 }
 
-.bar4{
-  position: absolute;
-  bottom: 0px;
-  width: 40px;
-  height: 425px;
-  background: #000000;
-  transform: rotate(45deg);
-  transform-origin: bottom left;
-  clip-path: polygon(0 0, 100% 10%, 100% 91%, 0% 100%);
-  animation: rotateAndSlideFromBottom 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
-}
-
-.bar5{
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  position: absolute;
-  background: #000000;
-  width: 40px;
-  height: 228px;
-  transform: rotate(-45deg);
-  transform-origin: bottom left;
-  animation: rotateAndSlideFromBottom2 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
-}
-
-@keyframes slideFromTop {
-  from {
-    top: -300px;
-  }
-  to {
-    top: 0;
-  }
-}
-
-@keyframes slideFromRight {
-  from {
-    right: -300px;
-  }
-  to {
-    right: 0;
-  }
-}
-
-@keyframes rotateAndSlideFromLeft {
+@keyframes animation-bar3 {
   from {
     left: -340px;
-    bottom: -60px;
-    transform: rotate(45deg);
-    transform-origin: bottom right;
+    bottom: -340px;
   }
   to {
     left: -30;
     bottom: 60px;
-    transform: rotate(45deg);
-    transform-origin: bottom right;
   }
 }
 
-@keyframes rotateAndSlideFromBottom {
+/* bar 4 */
+.bar4 {
+  bottom: 0px;
+  left: 0;
+  height: 425px;
+  transform: rotate(45deg);
+  transform-origin: bottom left;
+  clip-path: polygon(0 0, 100% 10%, 100% 91%, 0% 100%);
+  animation: animation-bar4 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes animation-bar4 {
   from {
-    bottom: -425px;
-    transform: rotate(45deg);
-    transform-origin: bottom left;
+    bottom: 425px;
+    left: 400px;
   }
   to {
     bottom: 0;
-    transform: rotate(45deg);
-    transform-origin: bottom left;
+    left: 0;
   }
 }
 
-@keyframes rotateAndSlideFromBottom2 {
+/* bar 5 */
+.bar5 {
+  right: 0;
+  bottom: 0;
+  height: 228px;
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  animation: animation-bar5 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes animation-bar5 {
   from {
     bottom: -425px;
-    transform: rotate(45deg);
-    transform-origin: bottom left;
+    right: -400px;
   }
   to {
     bottom: 0;
-    transform: rotate(-45deg);
-    transform-origin: bottom left;
+    right: 0;
   }
 }
 
+/* @keyframes fadeIn { */
+/*   from { */
+/*     opacity: 0; */
+/*   } */
+/*   to { */
+/*     opacity: 1; */
+/*   } */
+/* } */
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
