@@ -19,11 +19,9 @@ body {
   justify-content: center;
   height: 500px;
   width: 500px;
-  background: #ffffff;
   border-radius: 50%;
-  overflow: hidden;
   position: relative; /* Add position relative */
-  border: 15px solid transparent;
+  border: 15px   solid transparent;
   animation: circle 1s forwards;
   animation-delay: 1.2s; /* Add a delay of 1 second */
 }
@@ -35,6 +33,7 @@ body {
 }
 
 .container {
+  background: red;
   position: relative;
   height: 300px;
   width: 300px;
@@ -44,13 +43,21 @@ body {
 .bar2,
 .bar3,
 .bar4,
-.bar5 {
+.bar5,
+.bar6 {
   position: absolute;
   background: #000000;
   width: 40px;
   animation: fadeIn 1s ease-in-out forwards;
 }
 
+.bar6 {
+  height: 238px;
+  background: yellow;
+  opacity: 0.5;
+  clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%);
+  animation: animation-bar1 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
+}
 /* bar 1 */
 .bar1 {
   height: 238px;
